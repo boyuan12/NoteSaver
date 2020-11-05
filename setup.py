@@ -14,8 +14,8 @@ setup(
     packages=["notesaver"],
     python_requires=">= 3.6",
     entry_points={
-        "console_scripts": ["notesaver=NoteSaver.__main__:main"]
+        "console_scripts": ["notesaver=notesaver.cli:main"]
     },
     url="https://github.com/boyuan12/NoteSaver",
-    version="0.0.1",
+    version="0.0.6",
 )
