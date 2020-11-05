@@ -20,7 +20,8 @@ class NoteSaver():
 		r = requests.post("https://pastebin.com/api/api_post.php", data={
 			"api_dev_key": "2b2a1470268e3045f87ee376ef7918f8",
 			"api_option": "paste",
-			"api_paste_code": description
+			"api_paste_code": description,
+			"api_paste_name": title
 		})
 		return r.text
 
@@ -51,11 +52,13 @@ class NoteSaver():
 		return now.strftime("%Y-%m-%d-%H:%M:%S")
 
 
-	def gen_id_notes(self, notes):
+	def gen_id_notes(self, notes, log=True):
 		self.ns = {}
 		count = 1
 		for i in notes:
 			self.ns[count] = i
+			if log:
+				print(count, i.split("--")[1].split(".txt")[0])
 			count+=1
 
 
@@ -74,7 +77,7 @@ class NoteSaver():
 				self.gen_id_notes(notes)
 
 		elif args.command == "r":
-			self.gen_id_notes(self.fetch_all_notes())
+			self.gen_id_notes(self.fetch_all_notes(), False)
 			id = input("Type ID of the notes. If you don't know, in command, type l")
 
 			try:

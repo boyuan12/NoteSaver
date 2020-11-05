@@ -17,5 +17,5 @@ setup(
         "console_scripts": ["notesaver=notesaver.cli:main"]
     },
     url="https://github.com/boyuan12/NoteSaver",
-    version="0.0.6",
+    version="0.0.7",
 )
